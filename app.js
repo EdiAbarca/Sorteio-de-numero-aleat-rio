@@ -2,11 +2,17 @@ function sortear(){
     let quantidade = parseInt(document.getElementById('quantidade').value); //cria uma variavel e retorna o valor  na id quantidade no HTML
     let de = parseInt(document.getElementById('de').value); 
     let ate = parseInt(document.getElementById('ate').value);
-    
+    let abrangencia = (ate - de); 
+        
     if (de >= ate) { // verifica se o numero inicial nãp é maio que o final.
-        alert('Campo "Do número" deve ser inferior ao campo "Até o número". Verifique!');
-        return;
+            alert('Campo "Do número" deve ser inferior ao campo "Até o número". Verifique!');
+            return;
       }
+       
+        if (quantidade > (ate - de + 1)) {
+            alert(`Campo "Quantidade" deve ser menor ou igual a ${abrangencia}. Verifique!`);
+            return;
+        } 
 
     let sorteados = [];
     let numero;
@@ -16,7 +22,7 @@ function sortear(){
         //sorteados.push(numero);
     
     while(sorteados.includes(numero)) { // while = enquanto. Verifica se o numero gerado já está na variavel sorteados
-       numero = obterNumeroAleatorio(de, ate); 
+        numero = obterNumeroAleatorio(de, ate); 
         }   
        sorteados.push(numero);
     }
